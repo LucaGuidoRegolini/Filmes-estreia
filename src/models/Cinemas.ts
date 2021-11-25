@@ -7,7 +7,7 @@ export class Cinemas {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ unique: true })
+  @Column()
   name!: string;
 
   @Column()

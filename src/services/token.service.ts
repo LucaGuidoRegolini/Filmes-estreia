@@ -2,13 +2,13 @@ import jwt from "jsonwebtoken";
 import { Users } from "../models/Users";
 
 export default {
-  generateJwt(user: Users) {
+  generateJwt(userid: number, userRoler: string) {
     let token;
     if (process.env.SECRET) {
       token = jwt.sign(
         {
-          id: user.id,
-          role: user.role,
+          id: userid,
+          role: userRoler,
         },
         process.env.SECRET,
         {
