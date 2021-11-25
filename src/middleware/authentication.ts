@@ -32,6 +32,7 @@ export default {
   async bearer(req: Request, res: Response, next: NextFunction) {
     if (req.headers.authorization && SECRET) {
       const authorization = req.headers.authorization.replace("Bearer ", "");
+
       const decoded = jwt.verify(authorization, SECRET);
 
       if (decoded && typeof decoded !== "string") {

@@ -7,9 +7,11 @@ import { InvalidArgumentError } from "../errors";
 
 export default {
   async getCinema(req: Request, res: Response) {
+    console.log(req.cinemaId);
     const cinemasRep = getRepository(Cinemas);
+
     const cinema = await cinemasRep.findOne({ where: { id: req.cinemaId } });
-    return res.status(204).send();
+    return res.status(200).json(cinema);
   },
 
   async createCinema(req: Request, res: Response) {
