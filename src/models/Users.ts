@@ -19,7 +19,7 @@ export class Users {
   @Column()
   role!: string;
 
-  @ManyToOne(() => Cinemas, (cinema) => cinema.users, { onDelete: "CASCADE" })
+  @ManyToOne(() => Cinemas, (cinema) => cinema.users, { onDelete: "CASCADE", eager: true })
   cinema!: Cinemas;
 
   @CreateDateColumn({ select: false })

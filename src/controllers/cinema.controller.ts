@@ -20,7 +20,8 @@ export default {
 
     req.body.user.cinema = cinema.id;
     req.body.user.role = "admin";
-    const user = await userRep.save(req.body.user);
+    const user = userRep.create(req.body.user);
+    await userRep.save(user);
 
     return res.status(201).json({
       cinema,

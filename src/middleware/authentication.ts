@@ -14,7 +14,7 @@ export default {
 
     const user = await userRep.findOne({
       where: { email: req.body.email },
-      select: ["id", "password", "role", "cinema"],
+      select: ["id", "password", "role"],
     });
 
     if (user) {

@@ -21,7 +21,7 @@ export default {
     let token;
     if (req.userId && req.userRole && req.cinemaId) {
       token = tokenService.generateJwt(req.userId, req.userRole, req.cinemaId);
-      return res.status(200).json(token);
+      return res.status(200).json({ token });
     } else throw new InvalidArgumentError("User not found");
   },
 };
