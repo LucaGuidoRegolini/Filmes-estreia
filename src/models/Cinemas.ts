@@ -13,7 +13,7 @@ export class Cinemas {
   @Column()
   address!: string;
 
-  @OneToMany(() => Users, (user) => user.cinema)
+  @OneToMany(() => Users, (user) => user.cinema, { onDelete: "CASCADE" })
   users!: Users[];
 
   @CreateDateColumn()

@@ -14,7 +14,7 @@ export default {
 
     const user = await userRep.findOne({
       where: { email: req.body.email },
-      select: ["id", "password", "role"],
+      select: ["id", "password", "role", "cinema"],
     });
 
     if (user) {
@@ -22,6 +22,7 @@ export default {
       if (valid) {
         req.userId = user.id;
         req.userRole = user.role;
+        req.cinemaId = user.cinema.id;
         req.authenticated = true;
         return next();
       } else throw new UnauthorizedError("Invalid User");
@@ -35,6 +36,7 @@ export default {
 
       if (decoded && typeof decoded !== "string") {
         req.userId = decoded.id;
+        req.cinemaId = decoded.cinemaId;
         req.userRole = decoded.role;
         req.authenticated = true;
 
