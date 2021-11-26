@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 
 import movieView from "../views/movie.view";
 
@@ -10,9 +10,14 @@ import { Images } from "../models/Image";
 
 export default {
   async listAllMovie(req: Request, res: Response) {
+    const { name = "", limit = 10, page = 1 } = req.query;
     const moviesRep = getRepository(Movies);
 
-    const movies = await moviesRep.find({ where: { cinema: req.cinemaId } });
+    const movies = await moviesRep.find({
+      where: { cinema: req.cinemaId, name: Like(`%${name}%`) },
+      take: Number(limit),
+      skip: Number(limit) * (Number(page) - 1),
+    });
 
     return res.status(200).json(movieView.renderMany(movies));
   },
@@ -26,9 +31,14 @@ export default {
   },
 
   async listMovie(req: Request, res: Response) {
+    const { name = "", limit = 10, page = 1 } = req.query;
     const moviesRep = getRepository(Movies);
 
-    const movies = await moviesRep.find({ where: { blocked: 0 } });
+    const movies = await moviesRep.find({
+      where: { blocked: 0, name: Like(`%${name}%`) },
+      take: Number(limit),
+      skip: Number(limit) * (Number(page) - 1),
+    });
 
     return res.status(200).json(movieView.renderMany(movies));
   },
