@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Movies } from "./Movies";
 
 import { Users } from "./Users";
 
@@ -15,6 +16,9 @@ export class Cinemas {
 
   @OneToMany(() => Users, (user) => user.cinema, { onDelete: "CASCADE" })
   users!: Users[];
+
+  @OneToMany(() => Movies, (movie) => movie.cinema, { onDelete: "CASCADE" })
+  movies!: Movies[];
 
   @CreateDateColumn()
   created_at!: Date;

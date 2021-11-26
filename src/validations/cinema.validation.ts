@@ -2,7 +2,7 @@ import { Joi, celebrate, Segments } from "celebrate";
 
 const cinema = Joi.object().keys({
   name: Joi.string().min(5).required(),
-  address: Joi.string().min(5).required(),
+  address: Joi.string().allow(""),
 })
 
 const user = Joi.object().keys({

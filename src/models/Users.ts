@@ -1,7 +1,6 @@
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import bcrypt from "bcryptjs";
 import { Cinemas } from "./Cinemas";
-import { rolesInterface } from "../middleware/roles";
 
 @Entity("users")
 export class Users {
