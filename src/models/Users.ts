@@ -1,6 +1,7 @@
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import bcrypt from "bcryptjs";
 import { Cinemas } from "./Cinemas";
+import { rolesInterface } from "../middleware/roles";
 
 @Entity("users")
 export class Users {
@@ -17,7 +18,7 @@ export class Users {
   password!: string;
 
   @Column()
-  role!: string;
+  role!: keyof rolesInterface;
 
   @ManyToOne(() => Cinemas, (cinema) => cinema.users, { onDelete: "CASCADE", eager: true })
   cinema!: Cinemas;

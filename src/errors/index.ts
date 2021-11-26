@@ -5,6 +5,13 @@ class InvalidArgumentError extends Error {
   }
 }
 
+class notFound extends Error {
+  constructor(mensagem: string) {
+    super(mensagem);
+    this.name = "InvalidArgumentError";
+  }
+}
+
 class UnauthorizedError extends Error {
   constructor(mensagem: string) {
     super(mensagem);
@@ -12,4 +19,4 @@ class UnauthorizedError extends Error {
   }
 }
 
-export { InvalidArgumentError, UnauthorizedError };
+export { InvalidArgumentError, notFound, UnauthorizedError };

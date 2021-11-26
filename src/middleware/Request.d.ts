@@ -3,6 +3,7 @@ declare namespace Express {
     userId?: number;
     cinemaId?: number;
     userRole?: string;
+    userRole?: string;
     authenticated?: boolean;
   }
 }
