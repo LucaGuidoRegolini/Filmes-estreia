@@ -18,6 +18,8 @@ export class Movies {
   @Column({nullable: false })
   maximum_date!: Date;
 
+  @Column({default: true })
+  blocked!: boolean;
 
   @ManyToOne(() => Cinemas, (cinema) => cinema.movies, { onDelete: "CASCADE" })
   cinema!: Cinemas;
