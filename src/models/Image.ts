@@ -10,6 +10,6 @@ export class Images {
     path!: string;
 
     @ManyToOne(() => Movies, (movies) => movies.images)
-    movie!: Movies;
+    movie!: Movies[];
 
 }

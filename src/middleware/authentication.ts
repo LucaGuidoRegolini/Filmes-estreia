@@ -3,7 +3,7 @@ import { getRepository } from "typeorm";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import { UnauthorizedError } from "../errors";
+import { UnauthorizedError, notFound } from "../errors";
 import { Users } from "../models/Users";
 
 const { SECRET } = process.env;
@@ -26,7 +26,7 @@ export default {
         req.authenticated = true;
         return next();
       } else throw new UnauthorizedError("Invalid User");
-    }
+    }else throw new notFound("User not found");
   },
 
   async bearer(req: Request, res: Response, next: NextFunction) {
