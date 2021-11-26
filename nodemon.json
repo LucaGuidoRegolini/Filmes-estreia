@@ -2,6 +2,6 @@
   "ignore": ["**/*.test.ts", "**/*.spec.ts", "node_modules", "./src/db/migrations"],
   "delay": 0,
   "watch": ["src"],
-  "exec": "npm start",
+  "exec": "ts-node src/server.ts",
   "ext": "ts"
 }
