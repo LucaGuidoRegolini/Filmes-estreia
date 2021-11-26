@@ -2,12 +2,34 @@ import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 
 import { Users } from "../models/Users";
-import { Cinemas } from "../models/Cinemas";
 
 import tokenService from "../services/token.service";
-import { InvalidArgumentError } from "../errors";
+import { InvalidArgumentError, UnauthorizedError } from "../errors";
 
 export default {
+  async userMe(req: Request, res: Response) {
+    const userRep = getRepository(Users);
+
+    const user = await userRep.findOne({ where: { id: req.userId } });
+    return res.status(200).json(user);
+  },
+
+  async listUser(req: Request, res: Response) {
+    const userRep = getRepository(Users);
+
+    const users = await userRep.find({ where: { id: req.cinemaId } });
+    return res.status(200).json(users);
+  },
+
+  async getUser(req: Request, res: Response) {
+    const userRep = getRepository(Users);
+
+    const user = await userRep.findOne({ where: { id: req.params.id } });
+
+    if (user && user.cinema.id == req.cinemaId) return res.status(200).json(user);
+    else throw new UnauthorizedError("Invalid User");
+  },
+
   async loginUser(req: Request, res: Response) {
     let token;
     if (req.userId && req.userRole && req.cinemaId) {
