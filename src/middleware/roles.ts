@@ -6,6 +6,7 @@ export interface permissionsInterface {
 }
 
 export interface rolesInterface {
+  [key: string]: permissionsInterface;
   admin: permissionsInterface;
   analyze: permissionsInterface;
   register: permissionsInterface;
