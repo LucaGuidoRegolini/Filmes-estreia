@@ -27,6 +27,8 @@ o projeto esta executando no Heroku:
 
 http://cinema-2322.herokuapp.com/
 
+como esta executando no plano gratuito pode ser derrubado se ficar muito tempo sem ser usado, podendo levar a tempos longos de espera na primeira requisição.
+
 ## Iniciar
 
 ### Criar Cinema
@@ -94,3 +96,23 @@ os dados do filme serão vistos aqui:
 http://cinema-2322.herokuapp.com/movie/all
 
 **é nessesario o uso do JWT em todas as requisições**
+
+
+
+pode-se também usar paramentro nessa função como **page** indicando que pagina quer ir e 
+
+**limit** indicando quantos itens deve ter por pagina, e tambem pode-se pesquisar o filme pelo nome com **name**
+
+http://cinema-2322.herokuapp.com/movie/all?page=2&limit=3&name=Vin
+
+
+
+
+
+## Agradeceimento
+
+Obrigado por usar meu projeto, espero que tenha gostado
+
+Sinta-se a vontade para entrar em contato caso tenha achado algum bug
+
+lucagregolini@gmail.com
