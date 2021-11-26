@@ -64,7 +64,7 @@ export default {
     let images = [];
     for (const image in requestImages) {
       await imagessRep.save({ path: requestImages[image].filename, movie: movie.id });
-      images.push({ path: requestImages[image] });
+      images.push({ name: requestImages[image].filename });
     }
 
     return res.status(201).json({ movie, images });
