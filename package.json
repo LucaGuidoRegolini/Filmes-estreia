@@ -10,7 +10,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "postinstall": "npm run tsc",
+    "postinstall": "npm run typeorm migration:run && npm run tsc",
     "dev": "nodemon",
     "start": "node build/server.js",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
