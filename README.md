@@ -104,9 +104,9 @@ http://cinema-2322.herokuapp.com/movie/all
 
 
 
-pode-se também usar paramentro nessa função como **page** indicando que pagina quer ir e 
+pode-se também usar paramentros nessa função, como **page**, indicando que pagina quer ir e 
 
-**limit** indicando quantos itens deve ter por pagina, e tambem pode-se pesquisar o filme pelo nome com **name**
+**limit**, indicando quantos itens deve ter por pagina, e tambem pode-se pesquisar o filme pelo nome com **name**
 
 http://cinema-2322.herokuapp.com/movie/all?page=2&limit=3&name=Vin
 
@@ -117,9 +117,9 @@ Para executar em sua maquina local basta baixar o repositorio, executar na pasta
 do repositorio:
 ```cmd
 npm i
-pm start
+npm start
 ```
-Por padrão ira executar na porta 3000, mas pode ser mudando atraves das variavies de ambiente, não se esqueça de criar um arquivo .env na rais do projeto e definir o **SECRET** unica variavel que por motivos de segurança não tem valor default
+Por padrão ira executar na porta 3000, mas pode ser mudado através das variavies de ambiente, não se esqueça de criar um arquivo **.env** na rais do projeto e definir o **SECRET**,unica variavel que por motivos de segurança não tem valor default
 
 ## Agradeceimento
 
