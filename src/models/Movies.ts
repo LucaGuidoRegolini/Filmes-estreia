@@ -10,22 +10,22 @@ export class Movies {
   @Column({ nullable: false })
   name!: string;
 
-  @Column({nullable: false })
+  @Column({ default: "" })
   about!: string;
 
-  @Column({nullable: false })
+  @Column({ nullable: false })
   release_date!: Date;
 
-  @Column({nullable: false })
+  @Column({ nullable: false })
   maximum_date!: Date;
 
-  @Column({default: true })
+  @Column({ default: true })
   blocked!: boolean;
 
-  @ManyToOne(() => Cinemas, (cinema) => cinema.movies, { onDelete: "CASCADE" })
+  @ManyToOne(() => Cinemas, (cinema) => cinema.movies)
   cinema!: Cinemas;
 
-  @OneToMany(() => Images, (images) => images.movie, { onDelete: "CASCADE", eager: true })
+  @OneToMany(() => Images, (images) => images.movie, { eager: true })
   images!: Images[];
 
   @CreateDateColumn({ select: false })
@@ -33,5 +33,4 @@ export class Movies {
 
   @UpdateDateColumn({ select: false })
   updated_at!: Date;
-
 }

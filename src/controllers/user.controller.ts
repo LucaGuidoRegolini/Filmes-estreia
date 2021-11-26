@@ -24,7 +24,7 @@ export default {
   async getUser(req: Request, res: Response) {
     const userRep = getRepository(Users);
 
-    const user = await userRep.findOne({ where: { id: req.params.id } });
+    const user = await userRep.findOne({ where: { cinema: req.cinemaId, id: req.params.id } });
 
     if (user && user.cinema.id == req.cinemaId) return res.status(200).json(user);
     else throw new UnauthorizedError("Invalid User");
@@ -63,7 +63,7 @@ export default {
     const userRep = getRepository(Users);
 
     const user = await userRep.findOne({
-      where: { id: req.params.id },
+      where: { cinema: req.cinemaId, id: req.params.id },
     });
 
     if (user) {
