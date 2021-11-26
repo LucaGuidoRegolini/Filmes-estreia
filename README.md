@@ -112,7 +112,14 @@ http://cinema-2322.herokuapp.com/movie/all?page=2&limit=3&name=Vin
 
 
 
-
+## Executar localmente
+Para executar em sua maquina local basta baixar o repositorio, executar na pasta 
+do repositorio:
+```cmd
+npm i
+pm start
+```
+Por padrão ira executar na porta 3000, mas pode ser mudando atraves das variavies de ambiente, não se esqueça de criar um arquivo .env na rais do projeto e definir o **SECRET** unica variavel que por motivos de segurança não tem valor default
 
 ## Agradeceimento
 
