@@ -17,7 +17,7 @@ export default {
   async listUser(req: Request, res: Response) {
     const userRep = getRepository(Users);
 
-    const users = await userRep.find({ where: { id: req.cinemaId } });
+    const users = await userRep.findAndCount({ where: { cinema: req.cinemaId } });
     return res.status(200).json(users);
   },
 
