@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Luca <lucagregolini@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "postinstall": "npm run build",
     "start": "node build/index.js",
